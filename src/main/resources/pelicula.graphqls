@@ -1,0 +1,36 @@
+type Pelicula {
+  id: ID!
+  title: String
+  budget: Int
+  runtime: Float
+  lang: String
+  releaseDate: String
+}
+
+type Query {
+  getAll: [Pelicula]
+  getById(id: ID): Pelicula
+  getByTitle(title: String): [Pelicula]
+  getAllFromYear(year: Int): [Pelicula]
+}
+
+type Mutation {
+  createPelicula(
+    title: String
+    budget: Int
+    runtime: Float
+    lang: String
+    releaseDate: String
+  ): Pelicula
+
+  updatePelicula(
+    id: ID!
+    title: String
+    budget: Int
+    runtime: Float
+    lang: String
+    releaseDate: String
+  ): Pelicula
+
+  deletePelicula(id: ID!): Pelicula
+}
